@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>منصة الباحث الذكي</title>
+  <meta charset="UTF-8">
+</head>
+<body style="font-family: Arial; text-align: center; padding: 30px;">
+
+  <h1>🎓 منصة الباحث الذكي</h1>
+
+  <input type="text" id="query" placeholder="اكتب موضوع البحث" style="width:60%; padding:10px;">
+  <br><br>
+
+  <button onclick="search()">🔍 بحث</button>
+  <button onclick="generate()">🧠 توليد خطة</button>
+
+  <p id="plan" style="margin-top:20px; white-space: pre-line;"></p>
+
+  <script>
+    function search() {
+      var q = document.getElementById("query").value;
+      window.open("https://scholar.google.com/scholar?q=" + encodeURIComponent(q));
+    }
+
+    function generate() {
+      var q = document.getElementById("query").value;
+      var plan = `
+عنوان البحث: ${q}
+
+مشكلة البحث:
+دراسة موضوع "${q}" وتحليله
+
+أهداف البحث:
+- فهم الموضوع
+- تحليل الدراسات السابقة
+- تقديم توصيات
+
+الخطة:
+1. مقدمة
+2. الإطار النظري
+3. الدراسات السابقة
+4. المنهجية
+5. النتائج
+6. التوصيات
+`;
+      document.getElementById("plan").innerText = plan;
+    }
+  </script>
+
+</body>
+</html>
